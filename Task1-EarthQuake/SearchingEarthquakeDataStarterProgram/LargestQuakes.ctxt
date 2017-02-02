@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=LargestQuakes()
+comment1.params=
+comment1.target=void\ findLargestQuakes()
+comment2.params=data
+comment2.target=int\ indexOfLargest(java.util.ArrayList)
+comment3.params=dataURL
+comment3.target=java.util.ArrayList\ findAllEarthQuakes(java.lang.String)
+comment4.params=quakeData\ howMany
+comment4.target=java.util.ArrayList\ getLargest(java.util.ArrayList,\ int)
+numComments=5
