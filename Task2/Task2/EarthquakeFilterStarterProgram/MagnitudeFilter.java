@@ -9,6 +9,10 @@ public class MagnitudeFilter implements Filter
 {
     private double minimalMagnitude;
     private double maximalMagnitude;
+    private String name = "MagnitudeFilter";
+    public String getName(){
+        return this.name;
+    }
     public MagnitudeFilter(double minMagnitude,double maxMagnitude){
         this.minimalMagnitude = minMagnitude;
         this.maximalMagnitude = maxMagnitude;

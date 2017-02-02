@@ -8,6 +8,10 @@
 public class MinMagFilter implements Filter
 {
     private double magMin; 
+     private String name = "MinMagFilter";
+    public String getName(){
+        return this.name;
+    }
     
     public MinMagFilter(double min) { 
         magMin = min;

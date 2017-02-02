@@ -47,6 +47,37 @@ public class EarthQuakeClient2 {
             System.out.println(qe);
         } 
     }
+    public void testMatchAllFilter(){
+         EarthQuakeParser parser = new EarthQuakeParser();
+         String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+         System.out.println("# quakes read: "+list.size());
+         MatchAllFilter maf = new MatchAllFilter();
+         maf.addFilter(new MagnitudeFilter(0.0,2.0));
+         maf.addFilter(new DepthFilter(-100000.0,-10000.0));
+         maf.addFilter(new PhraseFilter("any","a"));
+         list = filter(list,maf);
+         for (QuakeEntry qe: list) { 
+            System.out.println(qe);
+        }
+        System.out.println("Used filters:"+maf.getName());
+    } 
+     public void testMatchAllFilter2(){
+          EarthQuakeParser parser = new EarthQuakeParser();
+         String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+         System.out.println("# quakes read: "+list.size());
+         MatchAllFilter maf = new MatchAllFilter();
+         maf.addFilter(new MagnitudeFilter(0.0,3.0));
+         maf.addFilter(new DistanceFilter(new Location(36.1314,-95.9372),10000*1000));
+         maf.addFilter(new PhraseFilter("any","Ca"));
+         list = filter(list,maf);
+         for (QuakeEntry qe: list) { 
+            System.out.println(qe);
+        }
+         System.out.println("total filtered:"+list.size());
+        }
+    
 
     public void createCSV() {
         EarthQuakeParser parser = new EarthQuakeParser();

@@ -1,33 +1,32 @@
+import java.util.*;
 
-/**
- * Write a description of class MatchAllFilter here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class MatchAllFilter
+public class MatchAllFilter implements Filter
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private ArrayList<Filter> filters;
 
-    /**
-     * Constructor for objects of class MatchAllFilter
-     */
-    public MatchAllFilter()
-    {
-        // initialise instance variables
-        x = 0;
+    public String getName(){
+        StringBuilder name=new StringBuilder("[");
+        int i =0;
+        for (Filter filter : filters){
+            if(i>0)name.append(',');
+            name.append(filter.getName());
+            i++;
+        }
+        name.append(']');
+        return name.toString();
     }
+    
+    public MatchAllFilter(){
+        filters = new ArrayList<Filter>();
+    }
+    public void addFilter(Filter filter){
+        filters.add(filter);
+    }
+    public boolean satisfies(QuakeEntry qe) { 
+        for(Filter filter : filters){
+            if (!filter.satisfies(qe))return false;
+        }
+        return true;
+    } 
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }

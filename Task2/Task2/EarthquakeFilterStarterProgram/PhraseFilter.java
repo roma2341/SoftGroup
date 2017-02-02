@@ -2,6 +2,10 @@ public class PhraseFilter implements Filter
 {
     private String where;
     private String query;
+    private String name = "PhraseFilter";
+    public String getName(){
+        return this.name;
+    }
     public PhraseFilter(String where,String query){
         this.where = where;
         this.query = query;

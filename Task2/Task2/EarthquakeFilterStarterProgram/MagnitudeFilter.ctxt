@@ -1,6 +1,8 @@
 #BlueJ class context
-comment0.params=minMagnitude\ maxMagnitude
-comment0.target=MagnitudeFilter(double,\ double)
-comment1.params=qe
-comment1.target=boolean\ satisfies(QuakeEntry)
-numComments=2
+comment0.params=
+comment0.target=java.lang.String\ getName()
+comment1.params=minMagnitude\ maxMagnitude
+comment1.target=MagnitudeFilter(double,\ double)
+comment2.params=qe
+comment2.target=boolean\ satisfies(QuakeEntry)
+numComments=3
